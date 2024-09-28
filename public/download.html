@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download File</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img src="/graphics/Logo.svg" alt="RiadRush Logo" class="logo">
+
+    <div class="card">
+        <img src="/graphics/DownloadFiles@2x-100.jpg" class="filesIcon" alt="RiadRush Logo" width="250px">
+        <h2>Download Your File</h2>
+        <p id="fileName"></p>
+        <p id="fileSize"></p>
+        <button id="downloadButton">Download</button>
+    </div>
+
+<script>
+        // Parse the file name and size from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileName = urlParams.get('file');
+        const fileSize = urlParams.get('size'); // Size can be passed in the URL
+
+        // Set the file name and download URL
+        if (fileName) {
+            document.getElementById('fileName').textContent = `${fileName} - ${fileSize}`;
+
+
+            // Add click event listener to the button
+            document.getElementById('downloadButton').addEventListener('click', function() {
+                // Create an anchor element to initiate the download
+                const downloadLink = document.createElement('a');
+                downloadLink.href = `/uploads/${fileName}`; // Path to the uploaded file
+                downloadLink.download = fileName; // Set download attribute
+                downloadLink.click(); // Programmatically click the link to download the file
+            });
+        } else {
+            document.body.innerHTML = '<p>File not found.</p>';
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
