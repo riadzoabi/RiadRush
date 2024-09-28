@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload with QR Code</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+</head>
+<body>
+
+    <img src="/graphics/Logo.svg" alt="RiadRush Logo" class="logo">
+
+    <div class="card">
+        <img src="/graphics/HeavyFiles@2x-100.jpg" class="filesIcon" alt="RiadRush Logo" width="287px">
+        <p>Bring your heavy docs,<br> We can handle the GBs</p>
+        <div class="file-upload"></div>
+        <input type="file" id="fileInput"/>
+        <button id="uploadButton">Upload</button>
+        </div>
+
+    </div>
+
+    <!-- Modal for QR Code and Download Link -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="/graphics/UploadSuccess@2x-100.jpg" class="filesIcon" alt="RiadRush Logo" width="217px">
+          <p class="modalTitle">Heavy docs? Delivered</p>
+          <p id="fileInfo">Loading File Info...</p>
+          <div class="container1">
+          <div><input id="fileLink" readonly></div>
+          <div><button id="copyButton"><img id="copyIc" src="/graphics/copy.svg"  width="21px"></button></div>
+            </div>
+          <div class="container2">
+            <div id="qr-code"><div><img src="/graphics/load.gif" alt="Loading..." id="loadingAni" width="80px"/></div></div>
+            <div><p class="modalTitle">Scan QR code to<br>download your file</p></div>
+        </div>
+        <p id="statusMessage"></p>
+            
+        </div>
+    </div>
+    
+
+    <!-- QR Code library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
