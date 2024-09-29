@@ -165,7 +165,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             downloadLink.click(); // Programmatically click the link to download the file
         });
     } else {
-        document.body.innerHTML = '<p>File not found.</p>';
+        document.body.innerHTML = '<p>Fiiiiile not found.</p>';
     }
 });
 
