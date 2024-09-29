@@ -145,28 +145,3 @@ function shortenUrl(longUrl) {
         }
     });
 }
-
-window.addEventListener('DOMContentLoaded', (event) => {
-    // Parse the file name and size from the URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const fileName = urlParams.get('file');
-    const fileSize = urlParams.get('size'); // Size can be passed in the URL
-
-    // Set the file name and download URL
-    if (fileName) {
-        document.getElementById('fileName').textContent = `${fileName} - ${fileSize}`;
-
-        // Add click event listener to the download button
-        document.getElementById('downloadButton').addEventListener('click', function() {
-            // Create an anchor element to initiate the download
-            const downloadLink = document.createElement('a');
-            downloadLink.href = `/uploads/${fileName}`; // Path to the uploaded file
-            downloadLink.download = fileName; // Set download attribute
-            downloadLink.click(); // Programmatically click the link to download the file
-        });
-    } else {
-        document.body.innerHTML = '<p>File not found.</p>';
-    }
-});
-
-
